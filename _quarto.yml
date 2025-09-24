@@ -1,0 +1,34 @@
+
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Analytics & ML Notes"
+  description: "Interlinked micro-notes by Bhavya Goyal"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: topics/
+        text: Topics
+    right:
+      - text: GitHub
+        href: https://github.com/bhavya-g13
+  sidebar:
+    style: "floating"
+    search: true
+    contents:
+      - href: index.qmd
+        text: Home
+      - section: Topics
+        contents: "topics/*.qmd"
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    code-copy: true
+    css: styles.css

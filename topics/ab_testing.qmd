@@ -1,0 +1,29 @@
+    ---
+    title: "A/B Testing"
+    categories: [experimentation, inference]
+    ---
+
+    <div class="topic-meta">Updated: {{< meta date format='YYYY-MM-DD' >}}</div>
+
+
+**Goal.** Compare two variants (A vs B) to estimate a causal lift on a metric (e.g., conversion rate).
+
+### Core steps
+1. Define primary metric and guardrail metrics.
+2. Randomize assignment; ensure sample ratio is close to expected split.
+3. Predefine duration and minimum detectable effect (MDE).
+4. Analyze with difference-in-means or proportion tests; report effect sizes and CIs.
+5. Check pitfalls: novelty effects, seasonality, peeking, sample-ratio mismatch.
+
+### Common tests
+- **Proportions**: z-test or chi-square for conversion rates.
+- **Means**: t-test or nonparametric alternative.
+- **Non-inferiority**: one-sided tests for rollbacks.
+
+
+    ---
+
+    ### Related
+    - [Logit / Probit](logit_probit.qmd)
+- [K-Fold Cross Validation](kfold_cv.qmd)
+- [Sensitivity Analysis (Time Series)](sensitivity_analysis.qmd)

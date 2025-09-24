@@ -1,0 +1,31 @@
+    ---
+    title: "Logit / Probit — Predicting a Binary y"
+    categories: [classification, glm]
+    ---
+
+    <div class="topic-meta">Updated: {{< meta date format='YYYY-MM-DD' >}}</div>
+
+
+With a binary target \(y \in \{0,1\}\), we consider two kinds of predictions:
+
+1. **Probability prediction**: \(\hat p_i = P(y_i = 1 \mid x_i)\).
+2. **Classification**: \(\hat y_i = 1\{\hat p_i \ge \tau\}\) for a threshold \(\tau\) (often 0.5, but tune for class imbalance / costs).
+
+### Models
+- **Logit**: logistic link, interpretable via log-odds.
+- **Probit**: normal CDF link, similar decisions; differs in tails and scale.
+
+### Workflow
+- Train with MLE; evaluate with ROC-AUC, PR-AUC, calibration.
+- Choose threshold using cost-sensitive analysis.
+- Consider **regularization** for stability in high dimensions.
+
+> See also: probability vs classification metrics, class imbalance handling, and calibration plots.
+
+
+    ---
+
+    ### Related
+    - [Regularization](regularization.qmd)
+- [Feature Importance](feature_importance.qmd)
+- [K-Fold Cross Validation](kfold_cv.qmd)

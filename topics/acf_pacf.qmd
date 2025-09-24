@@ -1,0 +1,28 @@
+    ---
+    title: "ACF & PACF / ARMA / ARIMA"
+    categories: [time-series]
+    ---
+
+    <div class="topic-meta">Updated: {{< meta date format='YYYY-MM-DD' >}}</div>
+
+
+**ACF/PACF.** Use **ACF** (autocorrelation) and **PACF** (partial autocorrelation) for initial lag-order hints.
+
+**ARMA(p,q).** Choose \(p,q\) using:
+- Visual: ACF/PACF patterns.
+- Information criteria: **BIC / AICc** (AICc for small samples).
+- Cross-validation: possible but complex given dependence; prefer **blocked** CV.
+- **Train–test split** that preserves temporal order is most reliable.
+
+**ARIMA(p,d,q).** Extends ARMA with differencing (\(d\)) to handle non-stationarity.
+
+**Checklist.**
+- Test/inspect stationarity; difference/transform as needed.
+- Re-diagnose residuals (Ljung–Box) and iterate.
+
+
+    ---
+
+    ### Related
+    - [Sensitivity Analysis (Time Series)](sensitivity_analysis.qmd)
+- [K-Fold Cross Validation](kfold_cv.qmd)

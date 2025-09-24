@@ -1,0 +1,25 @@
+    ---
+    title: "K-Fold Cross Validation"
+    categories: [validation]
+    ---
+
+    <div class="topic-meta">Updated: {{< meta date format='YYYY-MM-DD' >}}</div>
+
+
+**Definition.** Repeat model training and hold-out evaluation **K** times on different folds; report mean performance and variability.
+
+**Guidelines.**
+- Shuffle within constraints; for time series use **blocked** or **rolling** CV.
+- Tune hyperparameters within inner folds (nested CV) to avoid optimism.
+- Report distribution (mean ± sd) and a final refit on full training data.
+
+**When not to use standard K-fold.**
+- Strong temporal dependence (use walk-forward).
+- Grouped observations requiring **grouped** CV.
+
+
+    ---
+
+    ### Related
+    - [Regularization](regularization.qmd)
+- [Logit / Probit](logit_probit.qmd)

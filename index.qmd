@@ -1,0 +1,52 @@
+
+---
+title: "Home"
+page-layout: article
+---
+
+# Analytics & ML Notes
+
+Micro-notes for data engineering, analytics, and ML — interlinked so you can jump between concepts quickly.
+
+::: {.card-grid}
+<div class="card">
+<h3><a href="topics/ab_testing.qmd">A/B Testing</a></h3>
+<p>Design, metrics, and analysis pitfalls.</p>
+</div>
+<div class="card">
+<h3><a href="topics/logit_probit.qmd">Logit / Probit</a></h3>
+<p>Binary outcomes: probability vs. classification.</p>
+</div>
+<div class="card">
+<h3><a href="topics/sensitivity_analysis.qmd">Sensitivity Analysis</a></h3>
+<p>Time series robustness checks.</p>
+</div>
+<div class="card">
+<h3><a href="topics/regularization.qmd">Regularization</a></h3>
+<p>L1/L2, AIC/BIC/Adj. R² — avoiding overfitting.</p>
+</div>
+<div class="card">
+<h3><a href="topics/feature_importance.qmd">Feature Importance</a></h3>
+<p>Permutation-based importance and trade-offs.</p>
+</div>
+<div class="card">
+<h3><a href="topics/fixed_effects_iv.qmd">Fixed Effects & IV</a></h3>
+<p>Controlling for unobserved heterogeneity, dealing with endogeneity.</p>
+</div>
+<div class="card">
+<h3><a href="topics/acf_pacf.qmd">ACF/PACF & ARMA/ARIMA</a></h3>
+<p>Lag order selection and stationarity.</p>
+</div>
+<div class="card">
+<h3><a href="topics/kfold_cv.qmd">K-Fold Cross Validation</a></h3>
+<p>Stable estimates of out-of-sample performance.</p>
+</div>
+<div class="card">
+<h3><a href="topics/unsupervised_learning.qmd">Unsupervised Learning</a></h3>
+<p>Descriptive analytics: clustering, DR, associations.</p>
+</div>
+:::
+
+<div class="footer-note">
+Made with ❤️ using <a href="https://quarto.org">Quarto</a>.
+</div>

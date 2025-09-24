@@ -1,0 +1,35 @@
+    ---
+    title: "Regularization — Preventing Overfitting"
+    categories: [model-selection, shrinkage]
+    ---
+
+    <div class="topic-meta">Updated: {{< meta date format='YYYY-MM-DD' >}}</div>
+
+
+**Comparison to Regression Criteria.** Adjusted R², AIC, and BIC balance fit vs complexity:
+
+- **Adjusted R²**: accounts for number of predictors to avoid inflated R².
+- **AIC/BIC**: penalize complexity; **lower is better**. BIC penalizes more strongly → simpler models.
+
+**Use case (model selection).** Choose among candidate models.
+
+**ML perspective (predictive stability).** Metrics above are *post-fit*. For predictive pipelines, use **regularization** during estimation:
+
+- **L1 (Lasso)**: induces sparsity → feature selection.
+- **L2 (Ridge)**: shrinks coefficients → stability.
+- **Elastic Net**: combines L1+L2.
+
+**Workflow.**
+1. Generate candidate specs (AIC/BIC/Adj R²).
+2. Refit with Lasso/Ridge/**Elastic Net** tuned via cross-validation.
+3. Validate on holdout or via nested CV.
+
+**Note.** L1/L2 naming: *L1 = Lasso*, *L2 = Ridge*.
+
+
+    ---
+
+    ### Related
+    - [K-Fold Cross Validation](kfold_cv.qmd)
+- [Feature Importance](feature_importance.qmd)
+- [Logit / Probit](logit_probit.qmd)

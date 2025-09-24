@@ -1,0 +1,25 @@
+    ---
+    title: "Feature Importance — Permutation-Based"
+    categories: [model-interpretation]
+    ---
+
+    <div class="topic-meta">Updated: {{< meta date format='YYYY-MM-DD' >}}</div>
+
+
+**Idea.** A feature is *important* if model performance **drops** when that feature's values are randomly permuted (breaking its association with \(y\)).
+
+**Why permutation over re-training?**
+- Avoids training a new model per feature (expensive when features are many).
+- Captures importance **conditional** on other features given the fitted model.
+
+**Caveats.**
+- Correlated features can share importance; permutation may understate their joint effect.
+- Use appropriate metric (accuracy, ROC-AUC, RMSE) aligned to the task.
+- Repeat permutations for stability and report uncertainty (e.g., mean ± sd).
+
+
+    ---
+
+    ### Related
+    - [Regularization](regularization.qmd)
+- [Unsupervised Learning](unsupervised_learning.qmd)
