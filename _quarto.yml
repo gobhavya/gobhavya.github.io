@@ -1,9 +1,9 @@
 
 project:
   type: website
-  output-dir: docs
 
 website:
+  site-url: https://gobhavya.github.io
   title: "Analytics & ML Notes"
   description: "Interlinked micro-notes by Bhavya Goyal"
   navbar:
@@ -14,7 +14,7 @@ website:
         text: Topics
     right:
       - text: GitHub
-        href: https://github.com/bhavya-g13
+        href: https://github.com/gobhavya
   sidebar:
     style: "floating"
     search: true
