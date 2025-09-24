@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>data_model_erd – Analytics &amp; ML Notes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-d24c3880db9ce3ca4ea2d5bb002bea1f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Analytics &amp; ML Notes</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../topics/"> 
+<span class="menu-text">Topics</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/gobhavya"> 
+<span class="menu-text">GitHub</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../topics/ab_testing.html">Topics</a></li><li class="breadcrumb-item"><a href="../topics/data_model_erd.html">Data Model Erd</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../topics/ab_testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Core steps</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../topics/acf_pacf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Acf Pacf</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../topics/data_model_erd.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Data Model Erd</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../topics/feature_importance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Feature Importance</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../topics/fixed_effects_iv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fixed Effects Iv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../topics/kfold_cv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kfold Cv</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../topics/logit_probit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../topics/marketing_mix_modelling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Marketing Mix Modelling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../topics/regularization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regularization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../topics/sensitivity_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Typical checks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../topics/unsupervised_learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unsupervised Learning</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../topics/ab_testing.html">Topics</a></li><li class="breadcrumb-item"><a href="../topics/data_model_erd.html">Data Model Erd</a></li></ol></nav></header>
+
+
+
+
+<pre><code>---
+title: "Data Model - ERD"
+categories: [unsupervised, descriptive-analytics]
+---
+
+&lt;div class="topic-meta"&gt;Updated: ?meta:date&lt;/div&gt;
+
+      Awesome idea. Make a mini app that *leans* on PKs/FKs and shows them off clearly. Here’s a polished, portfolio-ready plan you can build fast and talk about confidently.
+
+      # Project concept: **ConfPlanner** (Conference planning &amp; ticketing)
+
+      A small multi-tenant app to manage conferences: venues, rooms, sessions, speakers, tickets, orders, attendees, check-ins. It naturally uses lots of required FKs, unique constraints, and through tables.
+
+      ## Why this shines in a portfolio
+
+      * Rich relational graph: parents/children, M2M with extra fields, partial uniques, check constraints.
+      * Clean demos: seed a fake conference, buy tickets, assign seats, check in.
+      * Visuals: auto-generated ERD + admin screens + a couple of cute dashboards.
+
+      ---
+
+      # Data model (concise ERD outline)
+
+      * **Organization** 1—*→* **Conference**
+      * **Conference** 1—*→* **Venue** 1—*→* **Room** 1—*→* **Seat**
+      * **Conference** 1—*→* **TicketType** 1—*→* **Ticket** *→* **Attendee**
+      * **Order** 1—*→* **OrderItem** (*TicketType* per item)
+      * **Speaker** M—*↔*—M **Session** via **Talk** (through model with role)
+      * **Session** *→* **Room**, constrained by time and capacity
+      * **CheckIn** links **Ticket** to **Session** with a unique constraint (one check-in per ticket per session)
+
+      ---
+
+      # Core Django models (drop-in skeleton)
+
+      ```python
+      # confplanner/core/models.py
+      from django.db import models
+      from django.contrib.auth import get_user_model
+      from django.db.models import Q, UniqueConstraint
+
+      User = get_user_model()
+
+      class Organization(models.Model):
+          name = models.CharField(max_length=120, unique=True)
+          owner = models.ForeignKey(User, on_delete=models.PROTECT, related_name="owned_orgs")
+
+      class Conference(models.Model):
+          org = models.ForeignKey(Organization, on_delete=models.CASCADE, related_name="conferences")
+          name = models.CharField(max_length=160)
+          slug = models.SlugField()
+          starts_at = models.DateTimeField()
+          ends_at = models.DateTimeField()
+
+          class Meta:
+              unique_together = [("org", "slug")]
+              constraints = [
+                  models.CheckConstraint(check=Q(ends_at__gt=models.F("starts_at")), name="conf_dates_valid"),
+              ]
+
+      class Venue(models.Model):
+          conference = models.ForeignKey(Conference, on_delete=models.CASCADE, related_name="venues")
+          name = models.CharField(max_length=160)
+          address = models.CharField(max_length=255)
+
+      class Room(models.Model):
+          venue = models.ForeignKey(Venue, on_delete=models.CASCADE, related_name="rooms")
+          name = models.CharField(max_length=80)
+          capacity = models.PositiveIntegerField()
+
+          class Meta:
+              unique_together = [("venue", "name")]
+
+      class Seat(models.Model):
+          room = models.ForeignKey(Room, on_delete=models.CASCADE, related_name="seats")
+          label = models.CharField(max_length=16)
+
+          class Meta:
+              unique_together = [("room", "label")]
+
+      class Speaker(models.Model):
+          full_name = models.CharField(max_length=120)
+          bio = models.TextField(blank=True)
+
+      class Session(models.Model):
+          conference = models.ForeignKey(Conference, on_delete=models.CASCADE, related_name="sessions")
+          room = models.ForeignKey(Room, on_delete=models.PROTECT, related_name="sessions")
+          title = models.CharField(max_length=160)
+          starts_at = models.DateTimeField()
+          ends_at = models.DateTimeField()
+
+          class Meta:
+              constraints = [
+                  models.CheckConstraint(check=Q(ends_at__gt=models.F("starts_at")), name="session_dates_valid"),
+                  models.Index(fields=["conference", "starts_at"]),
+              ]
+
+      class Talk(models.Model):
+          """Through table for Speaker&lt;-&gt;Session with roles (primary, panelist, etc.)"""
+          session = models.ForeignKey(Session, on_delete=models.CASCADE, related_name="talks")
+          speaker = models.ForeignKey(Speaker, on_delete=models.CASCADE, related_name="talks")
+          role = models.CharField(max_length=32, default="speaker")
+
+          class Meta:
+              unique_together = [("session", "speaker")]
+
+      class TicketType(models.Model):
+          conference = models.ForeignKey(Conference, on_delete=models.CASCADE, related_name="ticket_types")
+          name = models.CharField(max_length=80)
+          price_cents = models.PositiveIntegerField()
+          seat_required = models.BooleanField(default=False)
+
+          class Meta:
+              unique_together = [("conference", "name")]
+
+      class Order(models.Model):
+          buyer = models.ForeignKey(User, on_delete=models.PROTECT, related_name="orders")
+          conference = models.ForeignKey(Conference, on_delete=models.PROTECT, related_name="orders")
+          placed_at = models.DateTimeField(auto_now_add=True)
+          total_cents = models.PositiveIntegerField(default=0)
+
+      class OrderItem(models.Model):
+          order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="items")
+          ticket_type = models.ForeignKey(TicketType, on_delete=models.PROTECT, related_name="order_items")
+          quantity = models.PositiveIntegerField()
+
+      class Attendee(models.Model):
+          conference = models.ForeignKey(Conference, on_delete=models.PROTECT, related_name="attendees")
+          full_name = models.CharField(max_length=120)
+          email = models.EmailField()
+
+          class Meta:
+              unique_together = [("conference", "email")]
+
+      class Ticket(models.Model):
+          ticket_type = models.ForeignKey(TicketType, on_delete=models.PROTECT, related_name="tickets")
+          attendee = models.ForeignKey(Attendee, on_delete=models.PROTECT, related_name="tickets")
+          seat = models.ForeignKey(Seat, on_delete=models.PROTECT, null=True, blank=True, related_name="tickets")
+          issued_at = models.DateTimeField(auto_now_add=True)
+          is_active = models.BooleanField(default=True)
+
+          class Meta:
+              constraints = [
+                  # At most one *active* ticket per attendee per ticket_type
+                  UniqueConstraint(
+                      fields=["ticket_type", "attendee"],
+                      condition=Q(is_active=True),
+                      name="uniq_active_ticket_per_type_attendee",
+                  )
+              ]
+
+      class CheckIn(models.Model):
+          session = models.ForeignKey(Session, on_delete=models.CASCADE, related_name="checkins")
+          ticket = models.ForeignKey(Ticket, on_delete=models.PROTECT, related_name="checkins")
+          scanned_at = models.DateTimeField(auto_now_add=True)
+
+          class Meta:
+              unique_together = [("session", "ticket")]
+      ```
+
+      ### A few deliberate choices to discuss in your write-up
+
+      * `PROTECT` vs `CASCADE` demonstrates ownership vs reference.
+      * Partial unique constraint on `Ticket` shows DB-level business rules.
+      * Through model `Talk` shows M2M with payload.
+      * Room/Seat hierarchy + capacity showcases required FKs and uniqueness.
+
+      ---
+
+      # Minimal features to implement (and demo)
+
+      * **Public pages**: conference list → conference detail → sessions schedule.
+      * **Ticket buying**: “Add to cart” (1–3 items), checkout (no payment; fake success), order summary.
+      * **Seat assignment**: only for `seat_required` tickets; enforce one ticket per seat and &lt;= room capacity.
+      * **Check-in UI**: simple page to pick a session and “scan” a ticket code (UUID) → creates `CheckIn`.
+      * **Admin**: register all models; add list filters/search; inline `Talk` editing under `Session`.
+
+      ---
+
+      # Seeds, tests, and guards (short &amp; sweet)
+
+      **Factories (model\_bakery or factory\_boy)**
+
+      ```python
+      # tests/factories.py (factory_boy sample)
+      import factory
+      from django.utils import timezone
+      from core import models
+
+      class OrganizationFactory(factory.django.DjangoModelFactory):
+          class Meta: model = models.Organization
+          name = factory.Faker("company")
+          owner = factory.SubFactory("tests.factories.UserFactory")
+
+      class ConferenceFactory(factory.django.DjangoModelFactory):
+          class Meta: model = models.Conference
+          org = factory.SubFactory(OrganizationFactory)
+          name = factory.Faker("catch_phrase")
+          slug = factory.Faker("slug")
+          starts_at = factory.LazyFunction(lambda: timezone.now())
+          ends_at = factory.LazyFunction(lambda: timezone.now() + timezone.timedelta(days=2))
+      ```
+
+      **Property-style tests (pytest + pytest-django + hypothesis)**
+
+      ```python
+      def test_active_ticket_uniqueness(db, attendee, ticket_type):
+          from core.models import Ticket
+          Ticket.objects.create(attendee=attendee, ticket_type=ticket_type, is_active=True)
+          with pytest.raises(IntegrityError):
+              Ticket.objects.create(attendee=attendee, ticket_type=ticket_type, is_active=True)
+      ```
+
+      **Conflict tests**: attempt to delete a `Room` with sessions (`PROTECT` should fail), overbook a room (custom validator or signal), double check-in (unique\_together on CheckIn).
+
+      ---
+
+      # Diagram + docs
+
+      * Add **django-extensions + Graphviz**:
+
+        ```bash
+        pip install django-extensions pygraphviz
+        # settings.py: INSTALLED_APPS += ["django_extensions"]
+        python manage.py graph_models core -o docs/schema.png
+        ```
+      * **README.md** sections:
+
+        * architecture (why FKs/constraints), ERD image
+        * local run (below), seed script, demo scenario
+        * “Things I’d change with more time” (shows maturity)
+
+      ---
+
+      # Project skeleton
+
+      ```
+      confplanner/
+        core/
+          models.py
+          admin.py
+          serializers.py     # if you add DRF
+          views.py
+          urls.py
+        tickets/
+          services.py        # seat assignment/check-in helpers
+        templates/
+        static/
+        tests/
+        docs/
+          schema.png
+      README.md
+      docker-compose.yml
+      ```
+
+      ---
+
+      # Runbook (copy to README)
+
+      ```bash
+      python -m venv .venv &amp;&amp; source .venv/bin/activate
+      pip install django psycopg2-binary django-extensions pygraphviz
+      django-admin startproject confplanner .
+      python manage.py migrate
+      python manage.py createsuperuser
+      python manage.py loaddata demo.json   # provide a small fixture
+      python manage.py runserver
+      # optional: ERD
+      python manage.py graph_models core -o docs/schema.png
+      ```
+
+      ---
+
+      # Nice portfolio extras (quick wins)
+
+      * **One-page “Data Integrity Showcase”**: list each constraint with a tiny example + screenshot of the error message when violated.
+      * **Metrics page**: sessions by track, top speakers, check-ins per hour (simple aggregates).
+      * **OpenAPI schema** (if you use DRF) + a short screencap of trying the endpoints.
+      * **GitHub Actions**: run `pytest`, `flake8`, and `python manage.py makemigrations --check`.
+
+      ---
+
+      If you want, tell me whether you prefer a classic server-rendered Django app or DRF + a small frontend, and I’ll tailor the views/URLs and give you a couple of production-ready snippets (seat assignment service, check-in validator, admin config) you can paste straight in.
+
+      -----
+
+      Great question. As your model grows, the trick is to make the **ERD a living artifact** that’s auto-generated, reviewed, and versioned—never a one-off diagram. Here’s a tight stack + workflow that works really well with Django.
+
+      # Core tools (Django-friendly)
+
+      **1) Auto-generate diagrams from your models**
+
+      * **django-extensions + Graphviz (or pygraphviz):** generate ERDs straight from `models.py`.
+
+        ```bash
+        pip install django-extensions pygraphviz
+        # settings.py
+        INSTALLED_APPS += ["django_extensions"]
+        # Generate SVG for specific apps
+        python manage.py graph_models accounts catalog posts -o docs/erd.svg
+        ```
+
+        Tip: SVG commits better than PNG and diffs nicely in PRs.
+
+      **2) Cross-check with the real database**
+
+      * **SchemaSpy** (DB → ERD): produces HTML + ER diagrams from your Postgres instance; great to catch drift between code and the actual DB.
+      * **DBeaver / DataGrip / pgModeler:** click-to-draw ERDs and reverse-engineer from DB; handy for ad-hoc views and onboarding.
+
+      **3) Migration quality gates**
+
+      * **django-migration-linter:** blocks dangerous migrations (e.g., adding NOT NULL without default) in CI.
+      * **django-test-migrations:** write tests that assert critical constraints/indexes exist after migrations.
+
+      **4) Docs that live with code**
+
+      * **MkDocs (or Sphinx) + Mermaid:** keep a hand-curated overview diagram for big-picture context; the detailed ERD stays auto-generated.
+
+        * Store at `docs/schema.md` and embed `![ERD](erd.svg)`.
+
+      **5) Data quality &amp; drift**
+
+      * **Great Expectations** (optional): assert invariants on prod data (e.g., “every business has ≤1 active logo”).
+      * **pgMustard / pganalyze** (optional): performance review of join-heavy queries that emerge from complex FKs.
+
+      # Simple, durable workflow
+
+      **A) Make the code the source of truth**
+
+      * You primarily generate ERD from Django models (not DB), then **validate** against the DB using SchemaSpy occasionally.
+
+      **B) Pre-commit hook to keep diagrams fresh**
+
+      ```yaml
+      # .pre-commit-config.yaml
+      repos:
+      - repo: local
+        hooks:
+          - id: build-erd
+            name: Build ERD
+            entry: bash -c "python manage.py graph_models businesses assets templates posts -o docs/erd.svg"
+            language: system
+            pass_filenames: false
+      ```
+
+      **C) CI job to fail on schema drift**
+
+      * Run `makemigrations --check` (ensures no unmade migrations).
+      * Run `django-migration-linter` on new migrations.
+      * Optionally spin up Postgres, migrate, run SchemaSpy, and publish HTML as a CI artifact.
+
+      ```yaml
+      # .github/workflows/schema.yml (snippet)
+      - name: Check migrations
+        run: |
+          python manage.py makemigrations --check
+          django-migration-linter --project-root .
+      - name: Build ERD
+        run: python manage.py graph_models businesses assets templates posts -o docs/erd.svg
+      - name: Upload ERD
+        uses: actions/upload-artifact@v4
+        with:
+          name: erd
+          path: docs/erd.svg
+      ```
+
+      **D) Document ownership &amp; delete semantics**
+
+      * In each model’s docstring, note:
+
+        * **Owner** (who “owns” it)
+        * **on\_delete policy** (CASCADE/PROTECT/SET\_NULL + rationale)
+        * Any key **Unique/Check constraints**
+      * This makes the ERD meaningful to readers, not just boxes and lines.
+
+      # Maintenance tips that scale
+
+      * **Modular diagrams:** generate one ERD per app/bounded context (e.g., `businesses`, `assets`, `templates`) plus an all-in-one version. Big graphs stay readable.
+      * **Named constraints:** always name `UniqueConstraint`/`CheckConstraint`. You’ll see stable names in diffs and SchemaSpy.
+      * **Version templates:** keep `BaseTemplate(code, version)` and tag “latest” in data; your ERD then shows a clean linear evolution.
+      * **Snapshot fields:** keep immutable snapshots (like `contact_snapshot`) in designs—document them clearly so teammates don’t try to “normalize them away.”
+      * **Index hygiene:** when you add a frequent filter/join, add a matching `Index` in code and mention it in the model docstring (“supports query X”).
+      * **Release checklist:** “ERD updated, migration lint clean, SchemaSpy diff reviewed.”
+
+      # Recommended minimal set to start
+
+      * `django-extensions` + `pygraphviz` (generate ERD)
+      * `django-migration-linter` (guardrails)
+      * `MkDocs` with `docs/erd.svg` committed (visible docs)
+      * (Optional) `SchemaSpy` monthly/quarterly to catch drift
+
+      If you want, tell me your current app labels and I’ll give you a ready-to-paste `graph_models` command plus a starter `mkdocs.yml` so your ERD publishes as a mini site.</code></pre>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/gobhavya\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

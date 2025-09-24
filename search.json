@@ -1,0 +1,144 @@
+[
+  {
+    "objectID": "topics/fixed_effects_iv.html",
+    "href": "topics/fixed_effects_iv.html",
+    "title": "Analytics & ML Notes",
+    "section": "",
+    "text": "---\ntitle: \"Fixed Effects & Instrumental Variables\"\ncategories: [causal-inference, panel-data]\n---\n\n&lt;div class=\"topic-meta\"&gt;Updated: ?meta:date&lt;/div&gt;\nFixed Effects (FE). Control for time-invariant unobserved heterogeneity by including unit/time effects (e.g., entity and/or time dummies).\nInstrumental Variables (IV). Address endogeneity by using an instrument (Z) correlated with endogenous regressor (X) but affecting (Y) only through (X).\nWhen to use. - FE: panel data with omitted, time-invariant confounders. - IV: simultaneity, measurement error, or omitted variable bias.\nDiagnostics. - Check instrument relevance (first-stage F-stat). - Overidentification tests (when multiple instruments).\n---\n\n### Related\n- [A/B Testing](ab_testing.qmd)\n\nSensitivity Analysis (Time Series)",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Fixed Effects Iv"
+    ]
+  },
+  {
+    "objectID": "topics/ab_testing.html",
+    "href": "topics/ab_testing.html",
+    "title": "Analytics & ML Notes",
+    "section": "",
+    "text": "---\ntitle: \"A/B Testing\"\ncategories: [experimentation, inference]\n---\n\n&lt;div class=\"topic-meta\"&gt;Updated: ?meta:date&lt;/div&gt;\nGoal. Compare two variants (A vs B) to estimate a causal lift on a metric (e.g., conversion rate).\n\nCore steps\n\nDefine primary metric and guardrail metrics.\nRandomize assignment; ensure sample ratio is close to expected split.\nPredefine duration and minimum detectable effect (MDE).\nAnalyze with difference-in-means or proportion tests; report effect sizes and CIs.\nCheck pitfalls: novelty effects, seasonality, peeking, sample-ratio mismatch.\n\n\n\nCommon tests\n\nProportions: z-test or chi-square for conversion rates.\nMeans: t-test or nonparametric alternative.\nNon-inferiority: one-sided tests for rollbacks.\n\n### Related\n\nLogit / Probit\n\nK-Fold Cross Validation\nSensitivity Analysis (Time Series)",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Core steps"
+    ]
+  },
+  {
+    "objectID": "topics/unsupervised_learning.html",
+    "href": "topics/unsupervised_learning.html",
+    "title": "Analytics & ML Notes",
+    "section": "",
+    "text": "---\ntitle: \"Unsupervised Learning — Descriptive Analytics\"\ncategories: [unsupervised, descriptive-analytics]\n---\n\n&lt;div class=\"topic-meta\"&gt;Updated: ?meta:date&lt;/div&gt;\nSetting. Datasets with multiple features and no target variable.\nCommon tasks. - Dimensionality Reduction: PCA, t-SNE/UMAP (visualization), autoencoders. - Clustering: k-means, hierarchical, DBSCAN (density-based). - Association Rules: market-basket analysis (support, confidence, lift). - Sequence Mining: frequent pattern discovery in ordered events.\nWorkflow. 1. Scale/standardize features where needed. 2. Explore intrinsic dimensionality; visualize embeddings. 3. Choose clustering algorithm by shape/noise assumptions; validate with silhouette, Davies–Bouldin. 4. Summarize clusters (profiles) and link back to business KPIs.\n---\n\n### Related\n- [Feature Importance](feature_importance.qmd)\n\nK-Fold Cross Validation",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Unsupervised Learning"
+    ]
+  },
+  {
+    "objectID": "topics/sensitivity_analysis.html",
+    "href": "topics/sensitivity_analysis.html",
+    "title": "Analytics & ML Notes",
+    "section": "",
+    "text": "---\ntitle: \"Sensitivity Analysis — Time Series\"\ncategories: [time-series, robustness]\n---\n\n&lt;div class=\"topic-meta\"&gt;Updated: ?meta:date&lt;/div&gt;\nPurpose. Assess robustness of conclusions to modeling choices and perturbations.\n\nTypical checks\n\nRe-specification: alternate lag orders, seasonality terms, inclusion/exclusion of controls.\nRolling/expanding windows: stability of parameters and errors.\nOutlier treatment: winsorize/transform; compare results.\nBacktesting: walk-forward validation mimicking production.\n\nPair with ACF/PACF diagnostics and train–test splits that preserve order.\n---\n\n### Related\n- [ACF & PACF / ARMA / ARIMA](acf_pacf.qmd)\n\nK-Fold Cross Validation",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Typical checks"
+    ]
+  },
+  {
+    "objectID": "topics/marketing_mix_modelling.html",
+    "href": "topics/marketing_mix_modelling.html",
+    "title": "Analytics & ML Notes",
+    "section": "",
+    "text": "https://en.wikipedia.org/wiki/Marketing_mix_modeling",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Marketing Mix Modelling"
+    ]
+  },
+  {
+    "objectID": "topics/logit_probit.html",
+    "href": "topics/logit_probit.html",
+    "title": "Analytics & ML Notes",
+    "section": "",
+    "text": "---\ntitle: \"Logit / Probit — Predicting a Binary y\"\ncategories: [classification, glm]\n---\n\n&lt;div class=\"topic-meta\"&gt;Updated: ?meta:date&lt;/div&gt;\nWith a binary target (y {0,1}), we consider two kinds of predictions:\n\nProbability prediction: (p_i = P(y_i = 1 x_i)).\nClassification: (y_i = 1{p_i }) for a threshold () (often 0.5, but tune for class imbalance / costs).\n\n\nModels\n\nLogit: logistic link, interpretable via log-odds.\nProbit: normal CDF link, similar decisions; differs in tails and scale.\n\n\n\nWorkflow\n\nTrain with MLE; evaluate with ROC-AUC, PR-AUC, calibration.\nChoose threshold using cost-sensitive analysis.\nConsider regularization for stability in high dimensions.\n\n\nSee also: probability vs classification metrics, class imbalance handling, and calibration plots.\n\n---\n\n### Related\n- [Regularization](regularization.qmd)\n\nFeature Importance\nK-Fold Cross Validation",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Models"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
+    "section": "",
+    "text": "Analytics & ML Notes\nMicro-notes for data engineering, analytics, and ML — interlinked so you can jump between concepts quickly.\n\n\n\nA/B Testing\n\n\nDesign, metrics, and analysis pitfalls.\n\n\n\n\nLogit / Probit\n\n\nBinary outcomes: probability vs. classification.\n\n\n\n\nSensitivity Analysis\n\n\nTime series robustness checks.\n\n\n\n\nRegularization\n\n\nL1/L2, AIC/BIC/Adj. R² — avoiding overfitting.\n\n\n\n\nFeature Importance\n\n\nPermutation-based importance and trade-offs.\n\n\n\n\nFixed Effects & IV\n\n\nControlling for unobserved heterogeneity, dealing with endogeneity.\n\n\n\n\nACF/PACF & ARMA/ARIMA\n\n\nLag order selection and stationarity.\n\n\n\n\nK-Fold Cross Validation\n\n\nStable estimates of out-of-sample performance.\n\n\n\n\nUnsupervised Learning\n\n\nDescriptive analytics: clustering, DR, associations.\n\n\n\n\nMade with ❤️ using Quarto.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "topics/regularization.html",
+    "href": "topics/regularization.html",
+    "title": "Analytics & ML Notes",
+    "section": "",
+    "text": "---\ntitle: \"Regularization — Preventing Overfitting\"\ncategories: [model-selection, shrinkage]\n---\n\n&lt;div class=\"topic-meta\"&gt;Updated: ?meta:date&lt;/div&gt;\nComparison to Regression Criteria. Adjusted R², AIC, and BIC balance fit vs complexity:\n\nAdjusted R²: accounts for number of predictors to avoid inflated R².\nAIC/BIC: penalize complexity; lower is better. BIC penalizes more strongly → simpler models.\n\nUse case (model selection). Choose among candidate models.\nML perspective (predictive stability). Metrics above are post-fit. For predictive pipelines, use regularization during estimation:\n\nL1 (Lasso): induces sparsity → feature selection.\nL2 (Ridge): shrinks coefficients → stability.\nElastic Net: combines L1+L2.\n\nWorkflow. 1. Generate candidate specs (AIC/BIC/Adj R²). 2. Refit with Lasso/Ridge/Elastic Net tuned via cross-validation. 3. Validate on holdout or via nested CV.\nNote. L1/L2 naming: L1 = Lasso, L2 = Ridge.\n---\n\n### Related\n- [K-Fold Cross Validation](kfold_cv.qmd)\n\nFeature Importance\nLogit / Probit",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Regularization"
+    ]
+  },
+  {
+    "objectID": "topics/acf_pacf.html",
+    "href": "topics/acf_pacf.html",
+    "title": "Analytics & ML Notes",
+    "section": "",
+    "text": "---\ntitle: \"ACF & PACF / ARMA / ARIMA\"\ncategories: [time-series]\n---\n\n&lt;div class=\"topic-meta\"&gt;Updated: ?meta:date&lt;/div&gt;\nACF/PACF. Use ACF (autocorrelation) and PACF (partial autocorrelation) for initial lag-order hints.\nARMA(p,q). Choose (p,q) using: - Visual: ACF/PACF patterns. - Information criteria: BIC / AICc (AICc for small samples). - Cross-validation: possible but complex given dependence; prefer blocked CV. - Train–test split that preserves temporal order is most reliable.\nARIMA(p,d,q). Extends ARMA with differencing ((d)) to handle non-stationarity.\nChecklist. - Test/inspect stationarity; difference/transform as needed. - Re-diagnose residuals (Ljung–Box) and iterate.\n---\n\n### Related\n- [Sensitivity Analysis (Time Series)](sensitivity_analysis.qmd)\n\nK-Fold Cross Validation",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Acf Pacf"
+    ]
+  },
+  {
+    "objectID": "topics/data_model_erd.html",
+    "href": "topics/data_model_erd.html",
+    "title": "Analytics & ML Notes",
+    "section": "",
+    "text": "---\ntitle: \"Data Model - ERD\"\ncategories: [unsupervised, descriptive-analytics]\n---\n\n&lt;div class=\"topic-meta\"&gt;Updated: ?meta:date&lt;/div&gt;\n\n      Awesome idea. Make a mini app that *leans* on PKs/FKs and shows them off clearly. Here’s a polished, portfolio-ready plan you can build fast and talk about confidently.\n\n      # Project concept: **ConfPlanner** (Conference planning & ticketing)\n\n      A small multi-tenant app to manage conferences: venues, rooms, sessions, speakers, tickets, orders, attendees, check-ins. It naturally uses lots of required FKs, unique constraints, and through tables.\n\n      ## Why this shines in a portfolio\n\n      * Rich relational graph: parents/children, M2M with extra fields, partial uniques, check constraints.\n      * Clean demos: seed a fake conference, buy tickets, assign seats, check in.\n      * Visuals: auto-generated ERD + admin screens + a couple of cute dashboards.\n\n      ---\n\n      # Data model (concise ERD outline)\n\n      * **Organization** 1—*→* **Conference**\n      * **Conference** 1—*→* **Venue** 1—*→* **Room** 1—*→* **Seat**\n      * **Conference** 1—*→* **TicketType** 1—*→* **Ticket** *→* **Attendee**\n      * **Order** 1—*→* **OrderItem** (*TicketType* per item)\n      * **Speaker** M—*↔*—M **Session** via **Talk** (through model with role)\n      * **Session** *→* **Room**, constrained by time and capacity\n      * **CheckIn** links **Ticket** to **Session** with a unique constraint (one check-in per ticket per session)\n\n      ---\n\n      # Core Django models (drop-in skeleton)\n\n      ```python\n      # confplanner/core/models.py\n      from django.db import models\n      from django.contrib.auth import get_user_model\n      from django.db.models import Q, UniqueConstraint\n\n      User = get_user_model()\n\n      class Organization(models.Model):\n          name = models.CharField(max_length=120, unique=True)\n          owner = models.ForeignKey(User, on_delete=models.PROTECT, related_name=\"owned_orgs\")\n\n      class Conference(models.Model):\n          org = models.ForeignKey(Organization, on_delete=models.CASCADE, related_name=\"conferences\")\n          name = models.CharField(max_length=160)\n          slug = models.SlugField()\n          starts_at = models.DateTimeField()\n          ends_at = models.DateTimeField()\n\n          class Meta:\n              unique_together = [(\"org\", \"slug\")]\n              constraints = [\n                  models.CheckConstraint(check=Q(ends_at__gt=models.F(\"starts_at\")), name=\"conf_dates_valid\"),\n              ]\n\n      class Venue(models.Model):\n          conference = models.ForeignKey(Conference, on_delete=models.CASCADE, related_name=\"venues\")\n          name = models.CharField(max_length=160)\n          address = models.CharField(max_length=255)\n\n      class Room(models.Model):\n          venue = models.ForeignKey(Venue, on_delete=models.CASCADE, related_name=\"rooms\")\n          name = models.CharField(max_length=80)\n          capacity = models.PositiveIntegerField()\n\n          class Meta:\n              unique_together = [(\"venue\", \"name\")]\n\n      class Seat(models.Model):\n          room = models.ForeignKey(Room, on_delete=models.CASCADE, related_name=\"seats\")\n          label = models.CharField(max_length=16)\n\n          class Meta:\n              unique_together = [(\"room\", \"label\")]\n\n      class Speaker(models.Model):\n          full_name = models.CharField(max_length=120)\n          bio = models.TextField(blank=True)\n\n      class Session(models.Model):\n          conference = models.ForeignKey(Conference, on_delete=models.CASCADE, related_name=\"sessions\")\n          room = models.ForeignKey(Room, on_delete=models.PROTECT, related_name=\"sessions\")\n          title = models.CharField(max_length=160)\n          starts_at = models.DateTimeField()\n          ends_at = models.DateTimeField()\n\n          class Meta:\n              constraints = [\n                  models.CheckConstraint(check=Q(ends_at__gt=models.F(\"starts_at\")), name=\"session_dates_valid\"),\n                  models.Index(fields=[\"conference\", \"starts_at\"]),\n              ]\n\n      class Talk(models.Model):\n          \"\"\"Through table for Speaker&lt;-&gt;Session with roles (primary, panelist, etc.)\"\"\"\n          session = models.ForeignKey(Session, on_delete=models.CASCADE, related_name=\"talks\")\n          speaker = models.ForeignKey(Speaker, on_delete=models.CASCADE, related_name=\"talks\")\n          role = models.CharField(max_length=32, default=\"speaker\")\n\n          class Meta:\n              unique_together = [(\"session\", \"speaker\")]\n\n      class TicketType(models.Model):\n          conference = models.ForeignKey(Conference, on_delete=models.CASCADE, related_name=\"ticket_types\")\n          name = models.CharField(max_length=80)\n          price_cents = models.PositiveIntegerField()\n          seat_required = models.BooleanField(default=False)\n\n          class Meta:\n              unique_together = [(\"conference\", \"name\")]\n\n      class Order(models.Model):\n          buyer = models.ForeignKey(User, on_delete=models.PROTECT, related_name=\"orders\")\n          conference = models.ForeignKey(Conference, on_delete=models.PROTECT, related_name=\"orders\")\n          placed_at = models.DateTimeField(auto_now_add=True)\n          total_cents = models.PositiveIntegerField(default=0)\n\n      class OrderItem(models.Model):\n          order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name=\"items\")\n          ticket_type = models.ForeignKey(TicketType, on_delete=models.PROTECT, related_name=\"order_items\")\n          quantity = models.PositiveIntegerField()\n\n      class Attendee(models.Model):\n          conference = models.ForeignKey(Conference, on_delete=models.PROTECT, related_name=\"attendees\")\n          full_name = models.CharField(max_length=120)\n          email = models.EmailField()\n\n          class Meta:\n              unique_together = [(\"conference\", \"email\")]\n\n      class Ticket(models.Model):\n          ticket_type = models.ForeignKey(TicketType, on_delete=models.PROTECT, related_name=\"tickets\")\n          attendee = models.ForeignKey(Attendee, on_delete=models.PROTECT, related_name=\"tickets\")\n          seat = models.ForeignKey(Seat, on_delete=models.PROTECT, null=True, blank=True, related_name=\"tickets\")\n          issued_at = models.DateTimeField(auto_now_add=True)\n          is_active = models.BooleanField(default=True)\n\n          class Meta:\n              constraints = [\n                  # At most one *active* ticket per attendee per ticket_type\n                  UniqueConstraint(\n                      fields=[\"ticket_type\", \"attendee\"],\n                      condition=Q(is_active=True),\n                      name=\"uniq_active_ticket_per_type_attendee\",\n                  )\n              ]\n\n      class CheckIn(models.Model):\n          session = models.ForeignKey(Session, on_delete=models.CASCADE, related_name=\"checkins\")\n          ticket = models.ForeignKey(Ticket, on_delete=models.PROTECT, related_name=\"checkins\")\n          scanned_at = models.DateTimeField(auto_now_add=True)\n\n          class Meta:\n              unique_together = [(\"session\", \"ticket\")]\n      ```\n\n      ### A few deliberate choices to discuss in your write-up\n\n      * `PROTECT` vs `CASCADE` demonstrates ownership vs reference.\n      * Partial unique constraint on `Ticket` shows DB-level business rules.\n      * Through model `Talk` shows M2M with payload.\n      * Room/Seat hierarchy + capacity showcases required FKs and uniqueness.\n\n      ---\n\n      # Minimal features to implement (and demo)\n\n      * **Public pages**: conference list → conference detail → sessions schedule.\n      * **Ticket buying**: “Add to cart” (1–3 items), checkout (no payment; fake success), order summary.\n      * **Seat assignment**: only for `seat_required` tickets; enforce one ticket per seat and &lt;= room capacity.\n      * **Check-in UI**: simple page to pick a session and “scan” a ticket code (UUID) → creates `CheckIn`.\n      * **Admin**: register all models; add list filters/search; inline `Talk` editing under `Session`.\n\n      ---\n\n      # Seeds, tests, and guards (short & sweet)\n\n      **Factories (model\\_bakery or factory\\_boy)**\n\n      ```python\n      # tests/factories.py (factory_boy sample)\n      import factory\n      from django.utils import timezone\n      from core import models\n\n      class OrganizationFactory(factory.django.DjangoModelFactory):\n          class Meta: model = models.Organization\n          name = factory.Faker(\"company\")\n          owner = factory.SubFactory(\"tests.factories.UserFactory\")\n\n      class ConferenceFactory(factory.django.DjangoModelFactory):\n          class Meta: model = models.Conference\n          org = factory.SubFactory(OrganizationFactory)\n          name = factory.Faker(\"catch_phrase\")\n          slug = factory.Faker(\"slug\")\n          starts_at = factory.LazyFunction(lambda: timezone.now())\n          ends_at = factory.LazyFunction(lambda: timezone.now() + timezone.timedelta(days=2))\n      ```\n\n      **Property-style tests (pytest + pytest-django + hypothesis)**\n\n      ```python\n      def test_active_ticket_uniqueness(db, attendee, ticket_type):\n          from core.models import Ticket\n          Ticket.objects.create(attendee=attendee, ticket_type=ticket_type, is_active=True)\n          with pytest.raises(IntegrityError):\n              Ticket.objects.create(attendee=attendee, ticket_type=ticket_type, is_active=True)\n      ```\n\n      **Conflict tests**: attempt to delete a `Room` with sessions (`PROTECT` should fail), overbook a room (custom validator or signal), double check-in (unique\\_together on CheckIn).\n\n      ---\n\n      # Diagram + docs\n\n      * Add **django-extensions + Graphviz**:\n\n        ```bash\n        pip install django-extensions pygraphviz\n        # settings.py: INSTALLED_APPS += [\"django_extensions\"]\n        python manage.py graph_models core -o docs/schema.png\n        ```\n      * **README.md** sections:\n\n        * architecture (why FKs/constraints), ERD image\n        * local run (below), seed script, demo scenario\n        * “Things I’d change with more time” (shows maturity)\n\n      ---\n\n      # Project skeleton\n\n      ```\n      confplanner/\n        core/\n          models.py\n          admin.py\n          serializers.py     # if you add DRF\n          views.py\n          urls.py\n        tickets/\n          services.py        # seat assignment/check-in helpers\n        templates/\n        static/\n        tests/\n        docs/\n          schema.png\n      README.md\n      docker-compose.yml\n      ```\n\n      ---\n\n      # Runbook (copy to README)\n\n      ```bash\n      python -m venv .venv && source .venv/bin/activate\n      pip install django psycopg2-binary django-extensions pygraphviz\n      django-admin startproject confplanner .\n      python manage.py migrate\n      python manage.py createsuperuser\n      python manage.py loaddata demo.json   # provide a small fixture\n      python manage.py runserver\n      # optional: ERD\n      python manage.py graph_models core -o docs/schema.png\n      ```\n\n      ---\n\n      # Nice portfolio extras (quick wins)\n\n      * **One-page “Data Integrity Showcase”**: list each constraint with a tiny example + screenshot of the error message when violated.\n      * **Metrics page**: sessions by track, top speakers, check-ins per hour (simple aggregates).\n      * **OpenAPI schema** (if you use DRF) + a short screencap of trying the endpoints.\n      * **GitHub Actions**: run `pytest`, `flake8`, and `python manage.py makemigrations --check`.\n\n      ---\n\n      If you want, tell me whether you prefer a classic server-rendered Django app or DRF + a small frontend, and I’ll tailor the views/URLs and give you a couple of production-ready snippets (seat assignment service, check-in validator, admin config) you can paste straight in.\n\n      -----\n\n      Great question. As your model grows, the trick is to make the **ERD a living artifact** that’s auto-generated, reviewed, and versioned—never a one-off diagram. Here’s a tight stack + workflow that works really well with Django.\n\n      # Core tools (Django-friendly)\n\n      **1) Auto-generate diagrams from your models**\n\n      * **django-extensions + Graphviz (or pygraphviz):** generate ERDs straight from `models.py`.\n\n        ```bash\n        pip install django-extensions pygraphviz\n        # settings.py\n        INSTALLED_APPS += [\"django_extensions\"]\n        # Generate SVG for specific apps\n        python manage.py graph_models accounts catalog posts -o docs/erd.svg\n        ```\n\n        Tip: SVG commits better than PNG and diffs nicely in PRs.\n\n      **2) Cross-check with the real database**\n\n      * **SchemaSpy** (DB → ERD): produces HTML + ER diagrams from your Postgres instance; great to catch drift between code and the actual DB.\n      * **DBeaver / DataGrip / pgModeler:** click-to-draw ERDs and reverse-engineer from DB; handy for ad-hoc views and onboarding.\n\n      **3) Migration quality gates**\n\n      * **django-migration-linter:** blocks dangerous migrations (e.g., adding NOT NULL without default) in CI.\n      * **django-test-migrations:** write tests that assert critical constraints/indexes exist after migrations.\n\n      **4) Docs that live with code**\n\n      * **MkDocs (or Sphinx) + Mermaid:** keep a hand-curated overview diagram for big-picture context; the detailed ERD stays auto-generated.\n\n        * Store at `docs/schema.md` and embed `![ERD](erd.svg)`.\n\n      **5) Data quality & drift**\n\n      * **Great Expectations** (optional): assert invariants on prod data (e.g., “every business has ≤1 active logo”).\n      * **pgMustard / pganalyze** (optional): performance review of join-heavy queries that emerge from complex FKs.\n\n      # Simple, durable workflow\n\n      **A) Make the code the source of truth**\n\n      * You primarily generate ERD from Django models (not DB), then **validate** against the DB using SchemaSpy occasionally.\n\n      **B) Pre-commit hook to keep diagrams fresh**\n\n      ```yaml\n      # .pre-commit-config.yaml\n      repos:\n      - repo: local\n        hooks:\n          - id: build-erd\n            name: Build ERD\n            entry: bash -c \"python manage.py graph_models businesses assets templates posts -o docs/erd.svg\"\n            language: system\n            pass_filenames: false\n      ```\n\n      **C) CI job to fail on schema drift**\n\n      * Run `makemigrations --check` (ensures no unmade migrations).\n      * Run `django-migration-linter` on new migrations.\n      * Optionally spin up Postgres, migrate, run SchemaSpy, and publish HTML as a CI artifact.\n\n      ```yaml\n      # .github/workflows/schema.yml (snippet)\n      - name: Check migrations\n        run: |\n          python manage.py makemigrations --check\n          django-migration-linter --project-root .\n      - name: Build ERD\n        run: python manage.py graph_models businesses assets templates posts -o docs/erd.svg\n      - name: Upload ERD\n        uses: actions/upload-artifact@v4\n        with:\n          name: erd\n          path: docs/erd.svg\n      ```\n\n      **D) Document ownership & delete semantics**\n\n      * In each model’s docstring, note:\n\n        * **Owner** (who “owns” it)\n        * **on\\_delete policy** (CASCADE/PROTECT/SET\\_NULL + rationale)\n        * Any key **Unique/Check constraints**\n      * This makes the ERD meaningful to readers, not just boxes and lines.\n\n      # Maintenance tips that scale\n\n      * **Modular diagrams:** generate one ERD per app/bounded context (e.g., `businesses`, `assets`, `templates`) plus an all-in-one version. Big graphs stay readable.\n      * **Named constraints:** always name `UniqueConstraint`/`CheckConstraint`. You’ll see stable names in diffs and SchemaSpy.\n      * **Version templates:** keep `BaseTemplate(code, version)` and tag “latest” in data; your ERD then shows a clean linear evolution.\n      * **Snapshot fields:** keep immutable snapshots (like `contact_snapshot`) in designs—document them clearly so teammates don’t try to “normalize them away.”\n      * **Index hygiene:** when you add a frequent filter/join, add a matching `Index` in code and mention it in the model docstring (“supports query X”).\n      * **Release checklist:** “ERD updated, migration lint clean, SchemaSpy diff reviewed.”\n\n      # Recommended minimal set to start\n\n      * `django-extensions` + `pygraphviz` (generate ERD)\n      * `django-migration-linter` (guardrails)\n      * `MkDocs` with `docs/erd.svg` committed (visible docs)\n      * (Optional) `SchemaSpy` monthly/quarterly to catch drift\n\n      If you want, tell me your current app labels and I’ll give you a ready-to-paste `graph_models` command plus a starter `mkdocs.yml` so your ERD publishes as a mini site.",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Data Model Erd"
+    ]
+  },
+  {
+    "objectID": "topics/kfold_cv.html",
+    "href": "topics/kfold_cv.html",
+    "title": "Analytics & ML Notes",
+    "section": "",
+    "text": "---\ntitle: \"K-Fold Cross Validation\"\ncategories: [validation]\n---\n\n&lt;div class=\"topic-meta\"&gt;Updated: ?meta:date&lt;/div&gt;\nDefinition. Repeat model training and hold-out evaluation K times on different folds; report mean performance and variability.\nGuidelines. - Shuffle within constraints; for time series use blocked or rolling CV. - Tune hyperparameters within inner folds (nested CV) to avoid optimism. - Report distribution (mean ± sd) and a final refit on full training data.\nWhen not to use standard K-fold. - Strong temporal dependence (use walk-forward). - Grouped observations requiring grouped CV.\n---\n\n### Related\n- [Regularization](regularization.qmd)\n\nLogit / Probit",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Kfold Cv"
+    ]
+  },
+  {
+    "objectID": "topics/feature_importance.html",
+    "href": "topics/feature_importance.html",
+    "title": "Analytics & ML Notes",
+    "section": "",
+    "text": "---\ntitle: \"Feature Importance — Permutation-Based\"\ncategories: [model-interpretation]\n---\n\n&lt;div class=\"topic-meta\"&gt;Updated: ?meta:date&lt;/div&gt;\nIdea. A feature is important if model performance drops when that feature’s values are randomly permuted (breaking its association with (y)).\nWhy permutation over re-training? - Avoids training a new model per feature (expensive when features are many). - Captures importance conditional on other features given the fitted model.\nCaveats. - Correlated features can share importance; permutation may understate their joint effect. - Use appropriate metric (accuracy, ROC-AUC, RMSE) aligned to the task. - Repeat permutations for stability and report uncertainty (e.g., mean ± sd).\n---\n\n### Related\n- [Regularization](regularization.qmd)\n\nUnsupervised Learning",
+    "crumbs": [
+      "Home",
+      "Topics",
+      "Feature Importance"
+    ]
+  }
+]
