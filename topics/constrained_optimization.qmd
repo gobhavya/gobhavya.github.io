@@ -28,3 +28,4 @@ if result.success:
     print("Minimum value:", result.fun)
 else:
     print("Optimization failed:", result.message)
+```
